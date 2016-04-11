@@ -258,15 +258,15 @@ public class JCloudsBitStoreService implements BitStoreService {
     }
 
     @Required
-    public void setAwsSecretKey(String blobSecretKey) {
+    public void setSecretKey(String blobSecretKey) {
         this.blobSecretKey = blobSecretKey;
     }
 
-    @Required
     public String getBucketName() {
         return bucketName;
     }
 
+    @Required
     public void setBucketName(String bucketName) {
         this.bucketName = bucketName;
     }
