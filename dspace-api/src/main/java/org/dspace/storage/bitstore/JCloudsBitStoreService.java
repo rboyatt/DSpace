@@ -144,7 +144,7 @@ public class JCloudsBitStoreService implements BitStoreService {
             Long contentLength = scratchFile.length();
 
             Blob blob = blobStore.blobBuilder(key)
-                    .payload(in)
+                    .payload(scratchFile)
                     .contentLength(contentLength)
                     .build();
 
