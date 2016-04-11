@@ -62,6 +62,11 @@ public class JCloudsBitStoreService implements BitStoreService {
             log.warn("BucketName is not configured, setting default: " + bucketName);
         }
 
+        context = ContextBuilder.newBuilder(backendName)
+                .endpoint(endpointURL)
+                .credentials(blobAccessKey, blobSecretKey)
+                .buildView(BlobStoreContext.class);
+
         blobStore = context.getBlobStore();
 
         try {
@@ -75,12 +80,6 @@ public class JCloudsBitStoreService implements BitStoreService {
             log.error(e);
             throw new IOException(e);
         }
-
-        context = ContextBuilder.newBuilder(backendName)
-                .endpoint(endpointURL)
-                .credentials(blobAccessKey, blobSecretKey)
-                .buildView(BlobStoreContext.class);
-
     }
 
     /**
